@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta description="Angular directive to truncate multi-line text to visible height. The end of the visible text is appended with an ellipsis and optional text.">
+
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Angular Ellipsi by DiBari.github.io</title>
+
+    <script src="javascripts/angular.js"></script>
+    <script>
+      var exampleApp = angular.module("ellipsisApp", []);
+    </script>
+    <script src="javascripts/angular-ellipsis.js"></script>
+    <script>
+      (function(ng, app){
+
+        "use strict";
+
+        app.controller("EllipsisController", function($scope, $interval) {
+          var i = 1;
+
+          $scope.paragraphText = "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.  Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.  But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.";
+
+          $scope.ellipsisText = "But wait, there's more";
+
+          $scope.linkAddress = "http://www.google.com";
+
+          $interval(function() {
+            $scope.incrementing = "Read x" + i;
+            i++;
+          }, 1000);
+        });
+
+      })(angular, exampleApp);
+    </script>
+
+    <style type="text/css">
+      p {max-height: 75px; overflow: hidden; margin-top: 3px; margin-bottom: 30px;}
+      p span {color: red; font-weight: bold;}
+      code {font-size: .8em;}
+    </style>
+
+  </head>
+
+  <body data-ng-app="ellipsisApp" data-ng-controller="EllipsisController">
+    <header>
+      <div class="inner">
+        <h1>Angular Ellipsis</h1>
+        <h2>Angular directive to truncate multi-line text to visible height</h2>
+        <a href="https://github.com/dibari/angular-ellipsis" class="button"><small>Fork me on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Below are examples of the <a href="https://www.github.com/dibari/angular-ellipsis">Angular Ellipsis Directive</a> in action.  The directive is fully responsive; it will update on window resizing.  All that is required is for the element to have a set height or max-height.
+
+          <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Angular Ellipsis Examples</h3>
+
+            <h5>Basic Usage</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis></p>
+
+            <h5>Custom Append Text after Ellipsis</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"></p>
+
+            <h5>Custom Append Scope Variable after Ellipsis</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>ellipsisText</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{ellipsisText}}"></p>
+
+            <h5>Custom Append Scope Updating Variable after Ellipsis</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>incrementing</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{incrementing}}"></p>
+
+            <h5>Custom Append HTML (span) after Ellipsis</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&lt;span&gt;read more&lt;span&gt;"&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="<span>read more</span>"></p>
+
+            <h5>Custom Append HTML (link) after Ellipsis</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='&lt;a href="http://www.google.com"&gt;read more&lt;a&gt;'&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='<a href="http://www.google.com">read more</a>'></p>
+
+            <h5>Custom Append HTML (link) from Scope Variable after Ellipsis</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='&lt;a href="{{<span>linkAddress</span>}}"&gt;read more&lt;a&gt;'&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='<a href="{{linkAddress}}">read more</a>'></p>
+
+            <h5>Custom Ellipsis Symbol/String (No Appended Text)</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"></p>
+
+            <h5>Custom Ellipsis Symbol/String (With Appended Text)</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--" data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
+            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--" data-ellipsis-append="read more"></p>
+
+            <h3 class="link toggleNext">Angular controller and scope data used in examples</h3>
+            <code>
+              app.controller("EllipsisController", function($scope, $interval) {<br>
+              &nbsp;&nbsp;var i = 0;<br><br>
+              &nbsp;&nbsp;$scope.paragraphText = "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.  Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.  But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.";<br><br>
+              &nbsp;&nbsp;$scope.ellipsisText = "But wait, there's more";<br><br>
+              &nbsp;&nbsp;$scope.linkAddress = "http://www.google.com";<br><br>
+              &nbsp;&nbsp;$interval(function() {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;$scope.incrementing = "Read x" + i;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;<br>
+              &nbsp;&nbsp;}, 1000);<br>
+              });
+            </code>
+
+        </section>
+        <aside id="sidebar">
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-45318609-1");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+  </body>
+</html>
