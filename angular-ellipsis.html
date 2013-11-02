@@ -65,13 +65,17 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p>Below are examples of the <a href="https://www.github.com/dibari/angular-ellipsis">Angular Ellipsis Directive</a> in action.  The directive is fully responsive; it will update on window resizing.  All that is required is for the element to have a set height or max-height.
+          <p>Below are examples of the <a href="https://www.github.com/dibari/angular-ellipsis">Angular Ellipsis Directive</a> in action.  The directive is fully responsive; it will update on window resizing.  All that is required is for the element to have a set height or max-height.  *All of the examples below use max-height unless specifically noted*
 
           <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Angular Ellipsis Examples</h3>
 
             <h5>Basic Usage</h5>
             <code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
             <p data-ng-bind="paragraphText" data-ellipsis></p>
+
+            <h5>Basic Usage (Uses height and not max-height)</h5>
+            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
+            <p style="max-height: none; height: 75px;" data-ng-bind="paragraphText" data-ellipsis></p>
 
             <h5>Custom Append Text after Ellipsis</h5>
             <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
