@@ -28,18 +28,22 @@
         "use strict";
 
         app.controller("EllipsisController", function($scope, $interval) {
-          var i = 1;
+			var i = 1;
 
-          $scope.paragraphText = "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.  Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.  But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.";
+			$scope.paragraphText = "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.  Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.  But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.";
 
-          $scope.ellipsisText = "But wait, there's more";
+			$scope.ellipsisText = "But wait, there's more";
 
-          $scope.linkAddress = "http://www.google.com";
+			$scope.linkAddress = "http://www.google.com";
 
-          $interval(function() {
-            $scope.incrementing = "Read x" + i;
-            i++;
-          }, 1000);
+			$interval(function() {
+				$scope.incrementing = "But wait, there's more x" + i;
+				i++;
+			}, 1000);
+
+			$scope.showFullText = function() {
+				alert('On click function');
+			};
         });
 
       })(angular, exampleApp);
@@ -69,45 +73,33 @@
 
           <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Angular Ellipsis Examples</h3>
 
-            <h5>Basic Usage</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis></p>
+			<h5>Basic Usage</h5>
+			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
+			<p data-ng-bind="paragraphText" data-ellipsis></p>
 
-            <h5>Basic Usage (Uses height and not max-height)</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
-            <p style="max-height: none; height: 75px;" data-ng-bind="paragraphText" data-ellipsis></p>
+			<h5>Custom Ellipsis Symbol/String</h5>
+			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"&gt;&lt;/p&gt;</code>
+			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"></p>
 
-            <h5>Custom Append Text after Ellipsis</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"></p>
+			<h5>Custom Append Text</h5>
+			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
+			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"></p>
 
-            <h5>Custom Append Scope Variable after Ellipsis</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>ellipsisText</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{ellipsisText}}"></p>
+			<h5>Custom Ellipsis Symbol/String and Append Text</h5>
+			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="---" data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
+			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="---" data-ellipsis-append="read more"></p>
 
-            <h5>Custom Append Scope Updating Variable after Ellipsis</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>incrementing</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{incrementing}}"></p>
+			<h5>Custom Append Text using Scope Variable</h5>
+			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>ellipsisText</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
+			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{ellipsisText}}"></p>
 
-            <h5>Custom Append HTML (span) after Ellipsis</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&lt;span&gt;read more&lt;span&gt;"&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="<span>read more</span>"></p>
+			<h5>Custom Append Text using Updating Scope Variable</h5>
+			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>incrementing</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
+			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{incrementing}}"></p>
 
-            <h5>Custom Append HTML (link) after Ellipsis</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='&lt;a href="http://www.google.com"&gt;read more&lt;a&gt;'&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='<a href="http://www.google.com">read more</a>'></p>
-
-            <h5>Custom Append HTML (link) from Scope Variable after Ellipsis</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='&lt;a href="{{<span>linkAddress</span>}}"&gt;read more&lt;a&gt;'&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append='<a href="{{linkAddress}}">read more</a>'></p>
-
-            <h5>Custom Ellipsis Symbol/String (No Appended Text)</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"></p>
-
-            <h5>Custom Ellipsis Symbol/String (With Appended Text)</h5>
-            <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--" data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
-            <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--" data-ellipsis-append="read more"></p>
+			<h5>Custom Append Text with Click Function</h5>
+			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more" data-ellipsis-append-click="showFullText()" &gt;&lt;/p&gt;</code>
+			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more" data-ellipsis-append-click="showFullText()"></p>
 
             <h3 class="link toggleNext">Angular controller and scope data used in examples</h3>
             <code>
@@ -115,11 +107,13 @@
               &nbsp;&nbsp;var i = 0;<br><br>
               &nbsp;&nbsp;$scope.paragraphText = "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.  Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.  But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.";<br><br>
               &nbsp;&nbsp;$scope.ellipsisText = "But wait, there's more";<br><br>
-              &nbsp;&nbsp;$scope.linkAddress = "http://www.google.com";<br><br>
               &nbsp;&nbsp;$interval(function() {<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;$scope.incrementing = "Read x" + i;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;$scope.incrementing = "But wait, there's more x" + i;<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;<br>
-              &nbsp;&nbsp;}, 1000);<br>
+              &nbsp;&nbsp;}, 1000);<br><br>
+			  &nbsp;&nbsp;$scope.showFullText = function() {<br>
+			  &nbsp;&nbsp;&nbsp;&nbsp;alert('On click function');<br>
+			  &nbsp;&nbsp;};<br>
               });
             </code>
 
