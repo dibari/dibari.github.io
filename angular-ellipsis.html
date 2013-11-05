@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Dibari.github.io : " />
     <meta description="Angular directive to truncate multi-line text to visible height. The end of the visible text is appended with an ellipsis and optional text.">
 
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>Angular Ellipsis Directive | DiBari.github.io</title>
 
@@ -28,22 +22,22 @@
         "use strict";
 
         app.controller("EllipsisController", function($scope, $interval) {
-			var i = 1;
+      var i = 1;
 
-			$scope.paragraphText = "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.  Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.  But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.";
+      $scope.paragraphText = "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.  Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.  But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.";
 
-			$scope.ellipsisText = "But wait, there's more";
+      $scope.ellipsisText = "But wait, there's more";
 
-			$scope.linkAddress = "http://www.google.com";
+      $scope.linkAddress = "http://www.google.com";
 
-			$interval(function() {
-				$scope.incrementing = "But wait, there's more x" + i;
-				i++;
-			}, 1000);
+      $interval(function() {
+        $scope.incrementing = "But wait, there's more x" + i;
+        i++;
+      }, 1000);
 
-			$scope.showFullText = function() {
-				alert('On click function');
-			};
+      $scope.showFullText = function() {
+        alert('On click function');
+      };
         });
 
       })(angular, exampleApp);
@@ -52,54 +46,61 @@
     <style type="text/css">
       p {max-height: 75px; overflow: hidden; margin-top: 3px; margin-bottom: 30px;}
       p span {color: red; font-weight: bold;}
-      code {font-size: .8em;}
+      code {font-size: .7em;}
     </style>
-
   </head>
 
   <body id="ng-app" data-ng-app="ellipsisApp" data-ng-controller="EllipsisController">
-    <header>
-      <div class="inner">
-        <h1>Angular Ellipsis</h1>
-        <h2>Angular directive to truncate multi-line text to visible height</h2>
-        <a href="https://github.com/dibari/angular-ellipsis" class="button"><small>Follow me on</small>GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <p style="max-height: none;">Below are examples of the <a href="https://www.github.com/dibari/angular-ellipsis">Angular Ellipsis Directive</a> in action.  The directive is fully responsive; it will update on window resizing.  All that is required is for the element to have a set height or max-height.  Custom append text (which are wrapped in a span tag) is shown in bold and red.  These styles are set to highlight functionality, and are by default not styled.  All of the examples below use max-height unless specifically noted.</p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/dibari/angular-ellipsis">View on GitHub</a>
 
-          <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Angular Ellipsis Examples</h3>
+          <h1 id="project_title">Angular Ellipsis</h1>
+          <h2 id="project_tagline">Angular directive to truncate multi-line text to visible height</h2>
 
-			<h5>Basic Usage</h5>
-			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
-			<p data-ng-bind="paragraphText" data-ellipsis></p>
+        </header>
+    </div>
 
-			<h5>Custom Ellipsis Symbol/String</h5>
-			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"&gt;&lt;/p&gt;</code>
-			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"></p>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+          <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-			<h5>Custom Append Text</h5>
-			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
-			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"></p>
+      <section id="main-content">
+        <p style="max-height: none;">Below are examples of the <a href="https://www.github.com/dibari/angular-ellipsis">Angular Ellipsis Directive</a> in action.  The directive is fully responsive; it will update on window resizing.  All that is required is for the element to have a set height or max-height.  Custom append text (which are wrapped in a span tag) is shown in bold and red.  These styles are set to highlight functionality, and are by default not styled.  All of the examples below use max-height unless specifically noted.</p>
 
-			<h5>Custom Ellipsis Symbol/String and Append Text</h5>
-			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="---" data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
-			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="---" data-ellipsis-append="read more"></p>
+        <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Angular Ellipsis Examples</h3>
 
-			<h5>Custom Append Text using Scope Variable</h5>
-			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>ellipsisText</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
-			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{ellipsisText}}"></p>
+      <h5>Basic Usage</h5>
+      <code>&lt;p data-ng-bind="paragraphText" data-ellipsis&gt;&lt;/p&gt;</code>
+      <p data-ng-bind="paragraphText" data-ellipsis></p>
 
-			<h5>Custom Append Text using Updating Scope Variable</h5>
-			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>incrementing</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
-			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{incrementing}}"></p>
+      <h5>Custom Ellipsis Symbol/String</h5>
+      <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"&gt;&lt;/p&gt;</code>
+      <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="--"></p>
 
-			<h5>Custom Append Text with Click Function</h5>
-			<code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more" data-ellipsis-append-click="showFullText()" &gt;&lt;/p&gt;</code>
-			<p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more" data-ellipsis-append-click="showFullText()"></p>
+      <h5>Custom Append Text</h5>
+      <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
+      <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more"></p>
+
+      <h5>Custom Ellipsis Symbol/String and Append Text</h5>
+      <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="---" data-ellipsis-append="read more"&gt;&lt;/p&gt;</code>
+      <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-symbol="---" data-ellipsis-append="read more"></p>
+
+      <h5>Custom Append Text using Scope Variable</h5>
+      <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>ellipsisText</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
+      <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{ellipsisText}}"></p>
+
+      <h5>Custom Append Text using Updating Scope Variable</h5>
+      <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="&#123;&#123;<span>incrementing</span>&#125;&#125;"&gt;&lt;/p&gt;</code>
+      <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="{{incrementing}}"></p>
+
+      <h5>Custom Append Text with Click Function</h5>
+      <code>&lt;p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more" data-ellipsis-append-click="showFullText()" &gt;&lt;/p&gt;</code>
+      <p data-ng-bind="paragraphText" data-ellipsis data-ellipsis-append="read more" data-ellipsis-append-click="showFullText()"></p>
 
             <h3 class="link toggleNext">Angular controller and scope data used in examples</h3>
             <code>
@@ -111,29 +112,34 @@
               &nbsp;&nbsp;&nbsp;&nbsp;$scope.incrementing = "But wait, there's more x" + i;<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;<br>
               &nbsp;&nbsp;}, 1000);<br><br>
-			  &nbsp;&nbsp;$scope.showFullText = function() {<br>
-			  &nbsp;&nbsp;&nbsp;&nbsp;alert('On click function');<br>
-			  &nbsp;&nbsp;};<br>
+        &nbsp;&nbsp;$scope.showFullText = function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;alert('On click function');<br>
+        &nbsp;&nbsp;};<br>
               });
             </code>
 
-        </section>
-        <aside id="sidebar">
-        </aside>
 
-      </div>
+      </section>
     </div>
 
-    <script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-      try {
-        var pageTracker = _gat._getTracker("UA-45318609-1");
-        pageTracker._trackPageview();
-      } catch(err) {}
-    </script>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-45318609-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
 
   </body>
 </html>
